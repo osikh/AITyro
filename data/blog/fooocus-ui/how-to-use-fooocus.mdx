@@ -1,7 +1,7 @@
 ---
 title: 'A Brief Walkthrough of FooocusUI: Tips and Tricks to Enhance Your Experience'
-date: '2023-12-16'
-tags: ['stable-diffusion', 'fooocus-ui']
+date: '2024-09-22'
+tags: ['fooocus-ui']
 draft: false
 summary: Are you ready to explore FooocusUI? This user-friendly interface is designed to make your digital experience smoother and more enjoyable. Whether you’re a beginner or just looking to polish your skills, this article will guide you through the basics and share some handy tips and tricks. Let’s dive in!
 ---
@@ -42,4 +42,142 @@ _Now do you feel the difference? The lack of clear instructions led to unexpecte
 
 **This little experiment shows how important it is to be specific—detailed prompts can guide Fooocus to produce the cohesive results you’re aiming for. So, don’t hesitate to add those extra details and watch your ideas come to life!**
 
-Check out this guide 👉 _**[Importance of Prompts in Stable Diffusion?](/blog/stable-diffusion/importance-of-prompts)**_
+Still confused? Check out this guide (toddler level) 👉 _**[Importance of Prompts in Stable Diffusion?](/blog/stable-diffusion/importance-of-prompts)**_
+
+## Advanced Settings
+
+Selecting the Advanced checkbox at the bottom of the UI opens up the advanced settings menu.
+
+### Preset
+
+Fooocus offers built-in presets, and for now, let's stick with the **default** option to keep things simple and effective.
+
+<table style={{ marginTop: '-5%' }}>
+  <tbody>
+    <tr>
+      <td style={{ width: '33.3%' }}>![](/static/images/blog/22.png)</td>
+      <td style={{ width: '33.4%' }}>![](/static/images/blog/23.png)</td>
+      <td style={{ width: '33.3%' }}>![](/static/images/blog/24.png)</td>
+    </tr>
+    <tr>
+      <td>anime</td>
+      <td>realistic</td>
+      <td>sai</td>
+    </tr>
+  </tbody>
+</table>
+
+### Performance
+
+Choose from a range of performance settings to match your needs: **Quality**, **Speed**, **Extreme Speed**, **Lightning**, and **Hyper-SD**. Select the one that fits your project best!
+
+<table style={{ marginTop: '-5%' }}>
+  <tbody>
+    <tr>
+      <td style={{ width: '33.3%' }}>![](/static/images/blog/19.png)</td>
+      <td style={{ width: '33.4%' }}>![](/static/images/blog/20.png)</td>
+      <td style={{ width: '33.3%' }}>![](/static/images/blog/21.png)</td>
+    </tr>
+    <tr>
+      <td>Hyper-SD</td>
+      <td>Extreme Speed</td>
+      <td>Quality</td>
+    </tr>
+  </tbody>
+</table>
+
+### Aspect Ratio
+
+You have the flexibility to use any resolution you like. Adjust the aspect ratio to create images that perfectly fit your vision.
+
+### Add Custom Aspect Ratio
+
+Want even more control? You can add custom resolutions in the `modules/flags.py` file. Simply go to the line containing the variable `sdxl_aspect_ratios`, and below it, add a new line like this:
+
+```python
+sdxl_aspect_ratios.append("width*height")
+```
+
+Example: if you wanna add 1440p resolution then
+
+```python
+sdxl_aspect_ratios.append("2560*1440")`
+```
+
+This way, you can tailor the aspect ratios to suit your specific needs!
+
+### Image Number
+
+Specify the number of images you want to generate for each prompt. More images mean more creative options to choose from!
+
+### Output Format
+
+Select your preferred output format for the generated images. Whether you need JPEG, PNG, or something else, Fooocus has you covered.
+
+### Negative Prompt
+
+A negative prompt is like giving instructions on what to avoid. It helps guide the model by specifying elements you don’t want. For example, if you want to steer clear of anything inappropriate, you can add terms like "nudity, nsfw, sexual themes."
+
+### Seed (aka Random)
+
+By default, Fooocus shows this option as **Random**. This means a new seed is generated each time, creating unique results. A "seed" is a numerical value that initializes the random number generator for image creation. If you want consistent and reproducible results, you can set a specific seed number for your runs. This way, you can recreate that perfect image whenever you need it!
+
+## Consistent Results
+
+Fooocus also offers a fantastic array of options to help you achieve consistent results. One exciting feature is the ability to mix text and image prompts for truly incredible outcomes!
+
+### Steps to Create an Image Prompt
+
+1.  **Click on `Input Image`**: Start by selecting the image you want to use.
+2.  **Go to `Image Prompt`**: Navigate to the image prompt settings.
+3.  **Turn on `Advanced`**: Enable the Advanced option at the bottom of the dialog.
+4.  **Choose Your Image**: Select the image you want to base your results on.
+5.  **Select `Faceswap`**: This will allow you to blend features effectively.
+6.  **Use the Default Config**: The default settings work great for most cases!
+
+Now, when you type your text prompt and hit generate, the resulting face will resemble the face from your image prompt, infused with details drawn from your text. It’s a powerful way to bring your ideas to life with striking detail!
+
+![](/static/images/blog/29.png)
+
+### Let's Create Results with Same Looks
+
+**Text Prompt 1:**
+
+> samurai, cherry blossom
+
+**Text Prompt 2:**
+
+> drinking black coffee, cozy environment, black formal dress
+
+**Text Prompt 3:**
+
+> indian saree, fireworks in sky, night sky
+
+<table style={{}}>
+  <tbody>
+    <tr>
+      <td style={{ width: '25%', padding: 0, border: '1px solid' }}>
+        ![](/static/images/blog/26.png)
+      </td>
+      <td style={{ width: '25%', padding: 0, border: '1px solid' }}>
+        ![](/static/images/blog/25.png)
+      </td>
+      <td style={{ width: '25%', padding: 0, border: '1px solid' }}>
+        ![](/static/images/blog/27.png)
+      </td>
+      <td style={{ width: '25%', padding: 0, border: '1px solid' }}>
+        ![](/static/images/blog/28.png)
+      </td>
+    </tr>
+    <tr>
+      <td>Base image</td>
+      <td>Text Prompt 1</td>
+      <td>Text Prompt 2</td>
+      <td>Text Prompt 3</td>
+    </tr>
+  </tbody>
+</table>
+
+I adjusted the **StopAt** value to 0.95 and set the **weight** to 0.9 because my base image had green eyes, which can be tricky for Stable Diffusion to replicate. After making these changes, I noticed a significant improvement—Stable Diffusion started capturing the eye features much more accurately!
+
+These tweaks really helped enhance the results, allowing for finer details and a closer match to the original image. It’s amazing how small adjustments can lead to such a big difference in the final output!
