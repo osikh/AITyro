@@ -1,0 +1,66 @@
+---
+title: 'Mastering Facial Consistency with FooocusUI: Step-by-Step Tips'
+date: '2024-09-23'
+tags: ['fooocus-ui']
+draft: false
+summary: Are you ready to explore FooocusUI? This user-friendly interface is designed to make your digital experience smoother and more enjoyable. Whether you’re a beginner or just looking to polish your skills, this article will guide you through the basics and share some handy tips and tricks. Let’s dive in!
+---
+
+![Fooocus UI](/static/images/blog/30.png)
+
+<TOCInline toc={props.toc} exclude="Introduction" />
+
+## Introduction
+
+Fooocus is super easy to use! In the default mode, just type your prompt and hit Generate—it's that simple! (Press Ctrl+Enter on Windows or Cmd+Enter on Mac.)
+Get ready to watch your ideas come to life in seconds! Whether you're creating art, marketing materials, or just having fun, Fooocus makes it quick and enjoyable. Let your creativity flow and see what magic you can create!
+
+<div style={{ display: 'flex', alignItems: 'center' }}>
+  <div style={{ flex: 1 }}>
+    **Let's create a base image first using following prompts:** > women with red and violet eye
+    color, no makeup, natural skin
+  </div>
+  <div style={{ flex: '0 0 auto', marginLeft: '20px' }}>
+    <MyLightBox
+      thumbWidth={208}
+      thumbHeight={304}
+      slides={[{ src: '/static/images/blog/31.png', width: '832', height: '1216' }]}
+    />
+  </div>
+</div>
+
+### Great! Let's make some variations:
+
+<MyPhotoGallery
+  slides={[
+    {
+      src: '/static/images/blog/32.png',
+      width: '896',
+      height: '1152',
+      description: 'Prompt:\nan artist painting on a canvas with large brush',
+    },
+    {
+      src: '/static/images/blog/33.png',
+      width: '896',
+      height: '1152',
+      description: 'Prompt:\nprofessor lecturing student in a class',
+    },
+    {
+      src: '/static/images/blog/34.png',
+      width: '896',
+      height: '1152',
+      description: 'Prompt:\nlifeguard on a sandy beach',
+    },
+    {
+      src: '/static/images/blog/35.png',
+      width: '896',
+      height: '1152',
+      description:
+        'Prompt:\nwitch making spell in large dirty pot, jungle, witch hut, dirty dark environment',
+    },
+  ]}
+/>
+
+I also used negative prompt this time to get rid of unexpected results:
+
+> Negative Prompt nudity, sexual, nswf, distortion, fade
