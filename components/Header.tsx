@@ -12,13 +12,15 @@ const Header = () => {
     headerClass += ' sticky top-0 z-50'
   }
 
+  const basePath = process.env.BASE_PATH || ''
+
   return (
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
           <div className="mr-3">
             <Image
-              src="/static/images/logo.png"
+              src={`${basePath}/static/images/logo.png`}
               alt="Picture of the author"
               width={50}
               height={50}
